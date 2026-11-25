@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { overscroll-behavior: none; }
+  [dir='rtl'] body { font-family: 'Noto Sans Arabic', 'Plus Jakarta Sans', sans-serif; }
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    line-height: 1;
+    vertical-align: middle;
+    user-select: none;
+  }
+  .icon-fill { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  input[type='number']::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+}
+
+@layer components {
+  .container-site { @apply max-w-site mx-auto px-4 lg:px-8; }
+
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-full font-semibold text-label-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed; }
+  .btn-primary { @apply btn h-12 px-7 bg-primary text-on-primary shadow-md hover:bg-primary-container hover:-translate-y-px hover:shadow-lg; }
+  .btn-secondary { @apply btn h-12 px-7 bg-secondary-container text-primary hover:bg-[#ccefe1]; }
+  .btn-outline { @apply btn h-12 px-7 border-[1.5px] border-primary text-primary bg-transparent hover:bg-secondary-container/40; }
+  .btn-sm { @apply h-10 px-4 text-label-md; }
+
+  .card { @apply bg-surface-container-lowest rounded-2xl border border-outline-variant/30 shadow-card; }
+
+  .input {
+    @apply w-full h-12 px-4 rounded-xl bg-surface-container-lowest border border-on-surface/15 text-body-md text-on-surface
+      placeholder:text-outline outline-none transition-all focus:border-primary focus:ring-[3px] focus:ring-primary/15;
+  }
+  textarea.input { @apply h-auto py-3; }
+  .label { @apply block text-label-md text-on-surface mb-1.5; }
+
+  .chip { @apply inline-flex items-center gap-1.5 h-9 px-4 rounded-full border border-on-surface/10 bg-surface-container-lowest text-label-md text-on-surface-variant whitespace-nowrap transition-colors hover:text-primary; }
+  .chip-active { @apply bg-primary border-primary text-on-primary font-semibold hover:text-on-primary; }
+
+  .badge { @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide; }
+  .section-eyebrow { @apply text-label-sm font-bold uppercase tracking-wider text-primary; }
+  .section-title { @apply text-headline-lg-mobile md:text-headline-lg text-on-surface; }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { scrollbar-width: none; }
+}
